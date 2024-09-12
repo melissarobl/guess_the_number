@@ -31,18 +31,20 @@ def check_guess(guess, secret):
 
 
 def main():
-
+    guess_count = 0
     (low, high) = configure_range()
     secret = generate_secret(low, high)
 
     while True:
         guess = get_guess()
+        guess_count += 1
         result = check_guess(guess, secret)
         print(result)
 
         if result == correct:
             break
 
+    print(f'It took you {guess_count} guesses.')
     print('Thanks for playing the game!')
 
 
